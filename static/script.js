@@ -12,7 +12,13 @@ function getdata() {
         var data = JSON.parse(data.Result);
         const value = data.value
 
-      $(".title").html("推定人数：" + value);
+        $(".title").html("推定人数：" + value);
+
+        if (value > 50) {
+            $(".images").attr("src", "../static/images/crowded.png");
+        } else {
+            $(".images").attr("src", "../static/images/empty.png");
+        }
 
     })
     .fail( (data) => {
